@@ -1,4 +1,5 @@
 body {
+  background: url(../images/dark-background.jpg);
     background-attachment: fixed;
     font-family: "Alegreya";
   }
