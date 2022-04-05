@@ -1,12 +1,13 @@
 // App.js
-import './App.css';
+import "./App.css";
 
-function App() {
+import s from "./components/PhoneBook.module.css";
+import NavBar from "./components/NavBar/NavBar";
+
+export default function Mobile() {
   return (
-  <div>TEST
-    <h1>hello</h1>
-  </div>
+    <div className={s.container}>
+      <NavBar />
+    </div>
   );
 }
-
-export default App;
