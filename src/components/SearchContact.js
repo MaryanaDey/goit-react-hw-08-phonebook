@@ -3,7 +3,7 @@ import s from "./PhoneBook.module.css";
 export default function SearchContact(){
     return (
         <div className={s.containerSearch}>
-      <label className={s.labelSearch} htmlFor={id}>
+      <label className={s.labelSearch} htmlFor={""}>
         Пошук контактів по імені
       </label>
       <input
