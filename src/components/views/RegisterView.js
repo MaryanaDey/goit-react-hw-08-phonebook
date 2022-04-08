@@ -7,35 +7,36 @@ import s from "../PhoneBook.module.css";
 
 export default function RegisterView() {
   // const dispatch = useDispatch();
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case "name":
-  //       return setName(value);
-  //     case "email":
-  //       return setEmail(value);
-  //     case "password":
-  //       return setPassword(value);
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case "name":
+        return setName(value);
+      case "email":
+        return setEmail(value);
+      case "password":
+        return setPassword(value);
 
-  //     default:
-  //       return;
-  //   }
-  // };
+      default:
+        return;
+    }
+  };
 
-  // const handleSubmite = (e) => {
-  //   e.preventDefault();
-  //   dispatch(authOperations.register({ name, email, password }));
-  //   resetForm();
-  // };
+  const handleSubmite = (e) => {
+    e.preventDefault();
+    // dispatch(authOperations.register({ name, email, password }));
+    // resetForm();
+  };
 
   // const resetForm = () => {
   //   setName("");
   //   setEmail("");
   //   setPassword("");
   // };
+
   // const idName = shortid.generate();
   // const idEmail = shortid.generate();
   // const idPassword = shortid.generate();
@@ -43,16 +44,16 @@ export default function RegisterView() {
   return (
     <div>
       <h1 className={s.headingForm}>Сторінка реєстрації</h1>
-      <form className={s.form} action="" onSubmit={""}>
+      <form className={s.form} action="" onSubmit={handleSubmite}>
         <label htmlFor={""} className={s.labelName}>
           Ім'я
         </label>
         <input
           id={""}
-          value={""}
+          value={name}
           name="name"
           type="name"
-          onChange={""}
+          onChange={handleChange}
         />
 
         <label htmlFor={""} className={s.labelName}>
@@ -60,10 +61,10 @@ export default function RegisterView() {
         </label>
         <input
           id={""}
-          value={""}
+          value={email}
           name="email"
           type="email"
-          onChange={""}
+          onChange={handleChange}
         />
 
         <label htmlFor={""} className={s.labelName}>
@@ -71,10 +72,10 @@ export default function RegisterView() {
         </label>
         <input
           id={""}
-          value={""}
+          value={password}
           name="password"
           type="password"
-          onChange={""}
+          onChange={handleChange}
         />
 
         <button className={s.btnReg} type="submit">

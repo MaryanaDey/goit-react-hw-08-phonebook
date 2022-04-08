@@ -7,31 +7,31 @@ import s from "../PhoneBook.module.css";
 
 export default function Login() {
   // const dispatch = useDispatch();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case "email":
-  //       return setEmail(value);
-  //     case "password":
-  //       return setPassword(value);
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case "email":
+        return setEmail(value);
+      case "password":
+        return setPassword(value);
 
-  //     default:
-  //       return;
-  //   }
-  // };
+      default:
+        return;
+    }
+  };
 
-  // const handleSubmite = (e) => {
-  //   e.preventDefault();
-  //   dispatch(authOperations.logIn({ email, password }));
-  //   resetForm();
-  // };
+  const handleSubmite = (e) => {
+    e.preventDefault();
+    // dispatch(authOperations.logIn({ email, password }));
+    resetForm();
+  };
 
-  // const resetForm = () => {
-  //   setEmail("");
-  //   setPassword("");
-  // };
+  const resetForm = () => {
+    setEmail("");
+    setPassword("");
+  };
 
   // const idEmail = shortid.generate();
   // const idPassword = shortid.generate();
@@ -39,17 +39,17 @@ export default function Login() {
   return (
     <div>
       <h1 className={s.headingForm}>Сторінка авторизації</h1>
-      <form className={s.form} action="" onSubmit={""}>
+      <form className={s.form} action="" onSubmit={handleSubmite}>
 
         <label className={s.labelName} htmlFor={""}>
           Пошта
         </label>
         <input
           id={""}
-          value={""}
+          value={email}
           name="email"
           type="email"
-          onChange={""}
+          onChange={handleChange}
         />
 
         <label className={s.labelName} htmlFor={""}>
@@ -57,10 +57,10 @@ export default function Login() {
         </label>
         <input
           id={""}
-          value={""}
+          value={password}
           name="password"
           type="password"
-          onChange={""}
+          onChange={handleChange}
         />
 
         <button className={s.btnReg} type="submit">
