@@ -1,10 +1,10 @@
-import phonebookOperations from "../../Redux/phonebook/phonebook-operations";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+// import phonebookOperations from "../../Redux/phonebook/phonebook-operations";
+// import { useDispatch } from "react-redux";
+// import { useEffect } from "react";
 
 import Form from "../Form";
 import ContactList from "../ContactList";
-import SearchContact from "../SearchContact";
+ import SearchContact from "../SearchContact";
 import s from "../PhoneBook.module.css";
 
 export default function ContactsView() {
@@ -16,9 +16,9 @@ export default function ContactsView() {
   return (
     <>
       <h1 className={s.headingForm}>Телефонна книга</h1>
-      {/* <Form /> */}
+      <Form />
       <h2 className={s.contactList}>Контакти</h2>
-      {/* <SearchContact /> */}
+      <SearchContact />
       <ContactList />
     </>
   );

@@ -10,8 +10,8 @@
 // import PublicRoute from "./components/views/PublicRoute";
 
 //import { useEffect } from "react";
-//import { useDispatch, useSelector } from "react-redux";
-
+// import { useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 import s from "./components/PhoneBook.module.css";
 
 //import authOperations from "./Redux/auth/auth-operations";
@@ -23,12 +23,12 @@ import NavBar from "./components/NavBar/NavBar";
 // import HomeView from "./components/views/HomeView";
 // import PrivateRoute from "./components/views/PrivateRoute";
 // import PublicRoute from "./components/views/PublicRoute";
-//import { authSelectors } from "./Redux/auth";
+// import { authSelectors } from "./Redux/auth";
 import { Suspense } from "react";
 
 export default function Mobile() {
   //const dispatch = useDispatch();
- // const refreshingPage = useSelector(authSelectors.getRefreshingPage);
+  // const refreshingPage = useSelector(authSelectors.getRefreshingPage);
   //console.log(refreshingPage);
 
   //useEffect(() => {
@@ -36,28 +36,22 @@ export default function Mobile() {
   //}, [dispatch]);
   
   return (
-   // !refreshingPage && (
+    // !refreshingPage && (
       <div className={s.container}>
       <NavBar />
       
       <Suspense fallback={<>Loading...</>}>
         <Routes >
           <Route path="/" element={<HomeView />}></Route>
-          {/* <Route path="/contacts" element={<ContactView />}>
-          </Route>
-          <Route  path="/login" element={<LoginView />}>
-          </Route> */}
           <Route path="/register" element={ <RegisterView />}>
           </Route>
           <Route path="/login" element={ <LoginView />}>
           </Route>
           <Route path="/contacts" element={<ContactView />}>
           </Route>
-          
-
         </Routes>
       </Suspense>
     </div>
     )
- // );
+  // );
 }
