@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import phonebookOperation from "../Redux/phonebook/phonebook-operations";
 
@@ -8,36 +8,37 @@ import Button from "./Button/Button";
 // import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
 
 export default function Form() {
-  // const [newName, setName] = useState("");
-  // const [number, setNumber] = useState("");
+  const [newName, setName] = useState("");
+  const [number, setNumber] = useState("");
 
   // const state = useSelector(phonebookSelectors.getContactList);
 
   // const dispatch = useDispatch();
 
-  // const InputValues = (e) => {
-  //   const maxValues = e.target.max;
+  const InputValues = (e) => {
+     const maxValues = e.target.max;
     //  if (value.length > maxValues) {
     //    return;
     //  }
-    // const { name, value } = e.currentTarget;
+    
+    const { name, value } = e.currentTarget;
 
-  //   switch (name) {
-  //     case "name":
-  //       setName(value);
+    switch (name) {
+      case "name":
+        setName(value);
 
-  //       break;
-  //     case "number":
-  //       console.log(value.length);
-  //       if (value.length > maxValues) {
-  //         return;
-  //       }
-  //       setNumber(value);
-  //       break;
-  //     default:
-  //       return;
-  //   }
-  // };
+        break;
+      case "number":
+        console.log(value.length);
+        if (value.length > maxValues) {
+          return;
+        }
+        setNumber(value);
+        break;
+      default:
+        return;
+    }
+  };
 
   // const addContact = (e) => {
   //   e.preventDefault();
@@ -86,8 +87,8 @@ export default function Form() {
         id={""}
         type="text"
         name="name"
-        value={""}
-        onChange={""}
+        value={newName}
+        onChange={InputValues}
         placeholder="Name"
         autoComplete="off"
       ></input>
@@ -101,8 +102,8 @@ export default function Form() {
         type="tel"
         pattern="^[ 0-9]+$"
         name="number"
-        value={""}
-        onChange={""}
+        value={number}
+        onChange={InputValues}
         autoComplete="off"
         max="10"
       ></input>
@@ -111,5 +112,4 @@ export default function Form() {
     </form>
   );
 
-  
 }

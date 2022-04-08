@@ -1,29 +1,28 @@
-// import { useSelector, useDispatch } from "react-redux";
-// import { authSelectors, authOperations } from "../../Redux/auth";
+//  import { useSelector, useDispatch } from "react-redux";
+//  import { authSelectors, authOperations } from "../../Redux/auth";
 import { ImUser } from "react-icons/im";
 // ImUser;
 
 import s from "./User.module.css";
 
 export default function User() {
-  // const userName = useSelector(authSelectors.getUserName);
-  // const dispatch = useDispatch();
+  //  const userName = useSelector(authSelectors.getUserName);
+  //  const dispatch = useDispatch();
 
   return (
     <>
       <div className={s.containerNav}>
-      <p className={s.user}>Доброго дня, lalala!</p>
-        {/* <div>
+        <div>
           <ImUser className={s.containerUser} />
         </div>
-        <p className={s.user}>Доброго дня, !</p>
+        <p className={s.user}>Доброго дня,  !</p>
         <button
           className={s.btn}
           type="button"
-          onClick={() => dispatch(authOperations.logOut())}
+          // onClick={() => dispatch(authOperations.logOut())}
         >
           Вийти
-        </button> */}
+        </button>
       </div>
     </>
   );

@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
-//import { useSelector } from "react-redux";
-//import { authSelectors } from "../../Redux/auth";
+// import { useSelector } from "react-redux";
+// import { authSelectors } from "../../Redux/auth";
 import s from "./Navigation.module.css";
 
 export default function Navigation() {
-  //const IsLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  // const IsLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <div>
       <NavLink to="/" className={s.linkNavig} activeClassName={s.active} exact>
@@ -18,7 +19,7 @@ export default function Navigation() {
         >
           Контакти
         </NavLink>
-      {/* )} */}
+       {/* )}  */}
     </div>
   );
 }

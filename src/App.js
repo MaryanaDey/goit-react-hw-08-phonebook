@@ -5,26 +5,22 @@
 // import NavBar from "./components/NavBar/NavBar";
  import HomeView from "./components/views/HomeView";
  import RegisterView from "./components/views/RegisterView";
-// import LoginView from "./components/views/LoginView";
+
 // import PrivateRoute from "./components/views/PrivateRoute";
-// import PublicRoute from "./components/views/PublicRoute";
+//  import PublicRoute from "./components/views/PublicRoute";
 
 //import { useEffect } from "react";
 // import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
-import s from "./components/PhoneBook.module.css";
 
+// import { authSelectors } from "./Redux/auth";
 //import authOperations from "./Redux/auth/auth-operations";
 import NavBar from "./components/NavBar/NavBar";
+import LoginView from "./components/views/LoginView";
+import ContactView from "./components/views/ContactViews";
 
-// import RegisterView from "./components/views/RegisterView";
- import LoginView from "./components/views/LoginView";
- import ContactView from "./components/views/ContactViews";
-// import HomeView from "./components/views/HomeView";
-// import PrivateRoute from "./components/views/PrivateRoute";
-// import PublicRoute from "./components/views/PublicRoute";
-// import { authSelectors } from "./Redux/auth";
 import { Suspense } from "react";
+import s from "./components/PhoneBook.module.css";
 
 export default function Mobile() {
   //const dispatch = useDispatch();

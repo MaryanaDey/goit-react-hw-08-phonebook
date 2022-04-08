@@ -3,7 +3,7 @@
 import AuthNav from "./AuthNav";
 import Navigation from "./Navigation";
 //import { authSelectors } from "../../Redux/auth";
-// import User from "./User";
+ import User from "./User";
 import s from "./Navigation.module.css";
 
 export default function NavBar() {
@@ -14,7 +14,7 @@ export default function NavBar() {
       <Navigation />
 
       {/* {LoggedIn ? <User /> : <AuthNav />} */}
-      {/* <User /> */}
+      <User />
       <AuthNav />
     </div>
   );
