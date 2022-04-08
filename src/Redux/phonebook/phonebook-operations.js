@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 import * as actions from "./phonebook-actions";
 

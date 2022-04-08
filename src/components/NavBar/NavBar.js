@@ -1,13 +1,20 @@
-import Navigation from "./Navigation";
+//import { useSelector } from "react-redux";
+
 import AuthNav from "./AuthNav";
-import User from "./User";
+import Navigation from "./Navigation";
+//import { authSelectors } from "../../Redux/auth";
+// import User from "./User";
 import s from "./Navigation.module.css";
 
 export default function NavBar() {
+ // const LoggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <div className={s.generalNavContainer}>
       <Navigation />
-      <User />
+
+      {/* {LoggedIn ? <User /> : <AuthNav />} */}
+      {/* <User /> */}
       <AuthNav />
     </div>
   );

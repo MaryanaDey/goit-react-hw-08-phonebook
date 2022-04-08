@@ -1,15 +1,27 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import phonebookOperation from "../Redux/phonebook/phonebook-operations";
+
+import shortid from "shortid";
 import s from "./PhoneBook.module.css";
 import Button from "./Button/Button";
-import shortid from "shortid";
-import { useState } from "react";
+import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
 
-export default function Form(){
+export default function Form() {
   const [newName, setName] = useState("");
   const [number, setNumber] = useState("");
 
+  const state = useSelector(phonebookSelectors.getContactList);
+
+  const dispatch = useDispatch();
+
   const InputValues = (e) => {
     const maxValues = e.target.max;
-    const {name, value} = e.currentTarget;
+    //  if (value.length > maxValues) {
+    //    return;
+    //  }
+    const { name, value } = e.currentTarget;
+
     switch (name) {
       case "name":
         setName(value);
@@ -24,7 +36,7 @@ export default function Form(){
         break;
       default:
         return;
-   }
+    }
   };
 
   const addContact = (e) => {
@@ -46,7 +58,6 @@ export default function Form(){
     resetInputValues();
   };
 
-  
   const onCheckName = (contactList, newNameF) => {
     return contactList.some(({ newName }) => newName === newNameF);
   };
@@ -56,32 +67,30 @@ export default function Form(){
       alert('Це ім"я вже існує');
       return;
     }
-    //dispatch(phonebookOperation.addContact(newName, number));
+    dispatch(phonebookOperation.addContact(newName, number));
   };
 
   const resetInputValues = () => {
     setName("");
     setNumber("");
-  }
+  };
 
   const idName = shortid.generate();
   const idNumber = shortid.generate();
-    return (
-        <form className={s.form} onSubmit={""}>
-      <label htmlFor={""} className={s.labelName}>
+  return (
+    <form className={s.form} onSubmit={addContact}>
+      <label htmlFor={idName} className={s.labelName}>
         Ім'я
       </label>
       <input
         id={idName}
-        placeholder="Name"
         type="text"
         name="name"
-        value={""}
-        onChange={""}
+        value={newName}
+        onChange={InputValues}
         autoComplete="off"
       ></input>
-
-<label htmlFor={""} className={s.labelNumber}>
+      <label htmlFor={idNumber} className={s.labelNumber}>
         Номер
       </label>
       <input
@@ -90,12 +99,13 @@ export default function Form(){
         type="tel"
         pattern="^[ 0-9]+$"
         name="number"
-        value={""}
-        onChange={""}
+        value={number}
+        onChange={InputValues}
         autoComplete="off"
         max="10"
       ></input>
-          <Button>Додати контакт</Button>
-      </form>
-    )
+
+      <Button>Додати контакт</Button>
+    </form>
+  );
 }

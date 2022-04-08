@@ -1,8 +1,9 @@
 import s from "../PhoneBook.module.css";
 
 export default function HomeView() {
-    return (<p className={s.paragraphHome}>
-      Добрый день!Регистрируйся и создай свои любимые контакты!
-      </p>
-    );  
+  return (
+    <p className={s.paragraphHome}>
+      Доброго дня! Реєструйся та створюй свої улюблені контакти! 😎
+    </p>
+  );
 }

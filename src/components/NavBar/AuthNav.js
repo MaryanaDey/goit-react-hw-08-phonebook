@@ -9,10 +9,10 @@ export default function authNav() {
         className={s.linkNavig}
         activeClassName={s.active}
       >
-        Регистрация
+        Реєстрація
       </NavLink>
       <NavLink to="/login" className={s.linkNavig} activeClassName={s.active}>
-        Авторизация
+        Авторизація
       </NavLink>
     </div>
   );

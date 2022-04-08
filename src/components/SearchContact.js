@@ -1,20 +1,34 @@
-// import s from "./PhoneBook.module.css";
+import React from "react";
+import shortid from "shortid";
+import * as phonebookActions from "../Redux/phonebook/phonebook-actions";
 
-// export default function SearchContact(){
-//     return (
-//         <div className={s.containerSearch}>
-//       <label className={s.labelSearch} htmlFor={""}>
-//         Пошук контактів по імені
-//       </label>
-//       <input
-//         type="text"
-//         name="filter"
-//         value={""}
-//         onChange={""}
-//         id={""}
-//         autoComplete="off"
-//         className={s.inputSearch}
-//       ></input>
-//     </div>
-//     )
-// }
+import s from "./PhoneBook.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
+
+export default function SearchContact() {
+  const state = useSelector(phonebookSelectors.getContactFilter);
+  const dispatch = useDispatch();
+
+  const searchContact = (e) => {
+    dispatch(phonebookActions.veluesFilter(e.target.value));
+  };
+
+  const id = shortid.generate();
+  return (
+    <div className={s.containerSearch}>
+      <label className={s.labelSearch} htmlFor={id}>
+        Пошук контактів по імені
+      </label>
+      <input
+        type="text"
+        name="filter"
+        value={state}
+        onChange={searchContact}
+        id={id}
+        autoComplete="off"
+        className={s.inputSearch}
+      ></input>
+    </div>
+  );
+}
