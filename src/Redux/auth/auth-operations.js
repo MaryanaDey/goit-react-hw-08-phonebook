@@ -19,6 +19,9 @@ const register = createAsyncThunk('auth/register', async credentials => {
     return data;
   } catch (error) {
     // error.message
+    alert('This user is already exist!');
+
+    return Promise.reject(new Error(error));
   }
 });
 

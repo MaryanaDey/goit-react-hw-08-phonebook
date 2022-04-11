@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const NavLink = styled(Link)`
   text-decoration: underline;
-  color: #ffffff;
+  color: #f2f2f2;
   font-weight: 700;
   display: inline-block;
   

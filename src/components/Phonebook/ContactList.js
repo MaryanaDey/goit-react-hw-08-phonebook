@@ -35,6 +35,7 @@ export default function ContactList() {
     // </ListWrapper>
   )
 };
+
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({

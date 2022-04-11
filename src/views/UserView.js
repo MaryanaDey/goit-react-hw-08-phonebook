@@ -11,11 +11,8 @@ const UserView = (params) => {
     const dispatch = useDispatch();
     useEffect(() => dispatch(fetchContacts()), [dispatch]);
      return (
-        
         <Container>
           <Toaster />
-         {/* <h1>Phonebook</h1> */}
-
           <NameEditor />
          <h2 style={{
            textAlign: 'center',
@@ -23,8 +20,6 @@ const UserView = (params) => {
           <Filter />
           <ContactList />
         </Container>
-    
     );
-
 }
 export default UserView;

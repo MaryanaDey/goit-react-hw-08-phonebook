@@ -43,6 +43,7 @@ const SignUpView = () => {
           <InputField
             type="text"
             name="name"
+            placeholder="Your name"
             value={name} onChange={handleChange}
           />
         </Label>
@@ -53,6 +54,7 @@ const SignUpView = () => {
             type="email"
             name="email"
             value={email}
+            placeholder="Your e-mail"
             onChange={handleChange}
           />
         </Label>
@@ -63,6 +65,7 @@ const SignUpView = () => {
             type="password"
             name="password"
             value={password}
+            placeholder="Your password"
             onChange={handleChange}
           />
         </Label>

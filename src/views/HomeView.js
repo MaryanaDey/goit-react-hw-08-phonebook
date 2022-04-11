@@ -6,19 +6,18 @@ const styles = {
     textAlign: 'center',
     fontSize: '30px',
     fontWeight: '700',
-        marginBottom: '20px',
-     
+    marginBottom: '20px', 
   },
 };
 const HomeView = () => {
   return (
     <>
       <p style={styles.p}>
-        Wellcome{' '}
-        <span>
+        Wellcome!{' '}
+        {/* <span>
           <NavLink to="/login">back</NavLink>
-        </span>{' '}
-        to our PHONEBOOK App!
+        </span>{' '} */}
+        To use the Phone Book, please log in or sign up.
       </p>
       <p style={styles.p}>
         Or{' '}

@@ -11,7 +11,7 @@ export default function UserMenu() {
       <div
       >
           <Wellcome
-          >Hello, {name}!
+          > Wellcome, {name}!
           </Wellcome>
       <Button type="button" onClick={() => dispatch(authOperations.logOut())}>
       Log Out
