@@ -1,53 +1,55 @@
-// App.js
-// import "./App.css";
- import { Routes, Route } from 'react-router-dom';
-// import s from "./components/PhoneBook.module.css";
-// import NavBar from "./components/NavBar/NavBar";
- import HomeView from "./components/views/HomeView";
- import RegisterView from "./components/views/RegisterView";
+ import { lazy, Suspense, useEffect } from 'react';
+ import { useDispatch, useSelector } from 'react-redux';
+ import { Routes, Route, Navigate } from 'react-router-dom';
+ import Container from './components/Container/Container';
+ import NavBar from './components/NavBar/NavBar';
+ import { authOperations, authSelectors } from './redux/auth';
 
-// import PrivateRoute from "./components/views/PrivateRoute";
-//  import PublicRoute from "./components/views/PublicRoute";
+ const HomeView = lazy(() => import('./views/HomeView'));
+ const UserView = lazy(() => import('./views/UserView'));
+ const SignUpView = lazy(() => import('./views/SingUpView'));
+ const LogInView = lazy(() => import('./views/LogInView'));
 
-//import { useEffect } from "react";
-// import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
+ export const App = () => {
+  const dispatch = useDispatch();
 
-// import { authSelectors } from "./Redux/auth";
-//import authOperations from "./Redux/auth/auth-operations";
-import NavBar from "./components/NavBar/NavBar";
-import LoginView from "./components/views/LoginView";
-import ContactView from "./components/views/ContactViews";
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
-import { Suspense } from "react";
-import s from "./components/PhoneBook.module.css";
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
-export default function Mobile() {
-  //const dispatch = useDispatch();
-  // const refreshingPage = useSelector(authSelectors.getRefreshingPage);
-  //console.log(refreshingPage);
-
-  //useEffect(() => {
-   // dispatch(authOperations.getCurrentUser());
-  //}, [dispatch]);
-  
   return (
-    // !refreshingPage && (
-      <div className={s.container}>
-      <NavBar />
-      
-      <Suspense fallback={<>Loading...</>}>
-        <Routes >
-          <Route path="/" element={<HomeView />}></Route>
-          <Route path="/register" element={ <RegisterView />}>
-          </Route>
-          <Route path="/login" element={ <LoginView />}>
-          </Route>
-          <Route path="/contacts" element={<ContactView />}>
-          </Route>
-        </Routes>
-      </Suspense>
-    </div>
-    )
-  // );
-}
+    <>
+      <Container>
+        <NavBar />
+      </Container>
+      <Container>
+        <Suspense fallback={<h2>Loading...</h2>}>
+        <Routes>
+          {/* PublicRoute HomeView*/}
+           <Route
+            path="/"
+            element={isLoggedIn ? <Navigate to="/contacts" /> : <HomeView />}
+          />
+          {/* PrivateRoute UserView*/}
+          <Route
+            path="/contacts"
+            element={isLoggedIn ? <UserView /> : <Navigate to="/login" />}
+          />
+          {/* PublicRoute SignUpView*/}
+          <Route
+            path="/register"
+            element={isLoggedIn ? <Navigate to="/" /> : <SignUpView />}
+          />
+          {/* PublicRoute LogInView*/}
+          <Route
+            path="/login"
+            element={isLoggedIn ? <Navigate to="/contacts" /> : <LogInView />}
+          />
+          </Routes>
+          </Suspense>
+      </Container>
+    </>
+  );
+};

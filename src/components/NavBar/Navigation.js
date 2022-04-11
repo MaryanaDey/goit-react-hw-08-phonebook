@@ -1,25 +1,42 @@
-import { NavLink } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { authSelectors } from "../../Redux/auth";
-import s from "./Navigation.module.css";
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Nav, NavList, NavListItem } from './Navigation.styled';
+import AuthNav from './AuthNav';
+import UserMenu from '../UserMenu/Usermenu';
+import { authSelectors } from '../../redux/auth';
 
 export default function Navigation() {
-  // const IsLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <div>
-      <NavLink to="/" className={s.linkNavig} activeClassName={s.active} exact>
-        Головна
-      </NavLink>
-      {/* {IsLoggedIn && ( */}
-        <NavLink
-          to="/contacts"
-          className={s.linkNavig}
-          activeClassName={s.active}
-        >
-          Контакти
-        </NavLink>
-       {/* )}  */}
-    </div>
+    <Nav>
+      <NavList>
+        <NavListItem>
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({
+              color: isActive ? '#4caf50' : '#ffffff',
+              borderBottom: isActive ? '1px solid #4caf50' : 'none',
+              fontWeight: isActive ? '700' : '500',
+            })}
+          >
+            Home
+          </NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink
+            to="/contacts"
+            style={({ isActive }) => ({
+              color: isActive ? '#4caf50' : '#ffffff',
+              borderBottom: isActive ? '1px solid #4caf50' : 'none',
+              fontWeight: isActive ? '700' : '500',
+            })}
+          >
+            Phonebook
+          </NavLink>
+        </NavListItem>
+      </NavList>
+
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+    </Nav>
   );
 }
